@@ -1,0 +1,12 @@
+<header class="main-header">
+  <h1>TIΛC Web Shop</h1>
+  <div>
+    <button *ngIf="isEmployee$ | async" routerLink="/order-history" class="ordersHistory-btn">ORDERS HISTORY</button>
+    <app-cart-icon *ngIf="isEmployee$ | async"></app-cart-icon>
+    <button *ngIf="isLoggedIn$ | async" (click)="logout()" class="logout-btn">LOG OUT</button>
+  </div>
+</header>
+
+<main class="content-wrap">
+  <router-outlet></router-outlet>
+</main>

@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0px;
+            padding: 0px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header {
+            background-color: #dc3545;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        h2, h3 {
+            margin-top: 0;
+        }
+        .item-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }   
+        .item-table th, .item-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .item-table thead {
+            background-color: #f2f2f2;
+        }
+        .footer {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>New Order - TIAC Web Shop</h2>
+        </div>
+
+        <h3>A new order has been received.</h3>
+        <p><strong>Order number:</strong> {{OrderId}}</p>
+        <p><strong>Employees:</strong> {{EmployeeName}}</p>
+        <p><strong>Email:</strong> {{EmployeeEmail}}</p>
+        <p><strong>Date:</strong> {{DateTime}}</p>
+
+        <table class="item-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{OrderItems}}
+            </tbody>
+        </table>
+
+        <div class="footer">
+            <p>Total Price: {{TotalPrice}} RSD</p>
+        </div>
+    </div>
+</body>
+</html>

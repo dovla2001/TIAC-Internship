@@ -1,0 +1,73 @@
+<div class="cart-container" *ngIf="cart$ | async as cart; else loading">
+  <h2>Your Cart</h2>
+
+  <div *ngIf="cart.items.length === 0" class="empty-cart">
+    <p>Your cart is currently empty.</p>
+    <a routerLink="/employee-dashboard" class="btn-primary">BACK TO SHOP</a>
+  </div>
+
+  <div *ngIf="cart.items.length > 0" class="cart-content">
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th colspan="2">Products</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cart.items">
+          <td class="product-image-cell">
+            <img *ngIf="item.imageUrl" [src]="item.imageUrl.startsWith('/') ? serverUrl + item.imageUrl : item.imageUrl" alt="{{ item.productName }}">
+          </td>
+          <td class="product-info-cell">
+            <strong>{{ item.productName }}</strong>
+            <small>{{ item.variantDescription }}</small>
+          </td>
+          <td>{{ item.unitPrice | number:'1.2-2' }} RSD</td>
+          <td>
+            {{ item.quantity }}
+          </td>
+          <td><strong>{{ item.totalPrice | number:'1.2-2' }} RSD</strong></td>
+          <td class="action-cell">
+            <button (click)="removeItem(item.cartItemId)" class="remove-btn" title="Remove Item">X</button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4" class="grand-total-label">TOTAL PRICE:</td>
+          <td class="grand-total-amount">{{ cart.grandTotal | number:'1.2-2' }} RSD</td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="checkout-section">
+        <a routerLink="/employee-dashboard" class="btn-secondary checkout-btn">CONTINUE SHOPPING</a>
+        <button (click)="openConfirmationModal()" class="btn-primary checkout-btn">CONFIRM ORDER</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p class="loading-message">Loading cart...</p>
+</ng-template>
+
+
+<div *ngIf="isModalVisible" class="modal-overlay" (click)="onCancelOrder()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h4 class="messageForOrderConfirm">Order confirmation</h4>
+    <p class="messageForOrderConfirm">Are you sure you want to confirm the order?</p>
+    
+    <div class="modal-actions">
+      <button class="btn-secondary" (click)="onCancelOrder()" [disabled]="isLoading">No</button>
+      <button class="btn-primary" (click)="onConfirmOrder()"  [disabled]="isLoading">
+        <span *ngIf="!isLoading">Yes, confirm</span>
+        <span *ngIf="isLoading">Processing...</span>
+      </button>
+    </div>
+  </div>
+</div>

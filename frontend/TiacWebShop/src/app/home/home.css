@@ -1,0 +1,62 @@
+.welcome-message {
+  text-align: center;
+  padding: 20px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.welcome-message h3 {
+  color: #333;
+  margin-bottom: 20px; 
+  font-weight: 500;
+}
+
+.welcome-message .button-group {
+  margin-top: 30px; 
+}
+
+.welcome-message .button-group button {
+  padding: 14px 32px; 
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 0 20px; 
+  transition: all 0.3s ease;
+  border: 2px solid transparent; 
+}
+
+.welcome-message .button-group button:first-child {
+  background-color: #28a745;
+  color: white;
+  
+}
+
+.welcome-message .button-group button:first-child:hover {
+  background-color: #218838; 
+  transform: translateY(-3px); 
+}
+
+.welcome-message .button-group button:last-child {
+  background-color: transparent;
+  border-color: #555;
+  color: #555;
+}
+
+.welcome-message .button-group button:last-child:hover {
+  background-color: #555; 
+  color: white;
+  transform: translateY(-3px);
+}
+
+.welcome-message .button-group button:last-child:active {
+  transform: translateY(0);
+  background-color: #333;
+  border-color: #333;
+}
+
+.welcome-message .button-group button:last-child:focus {
+  outline: 2px solid #555;
+  outline-offset: 3px;
+}

@@ -1,0 +1,49 @@
+<div *ngIf="productDetails$ | async as product" class="details-container">
+
+  <div class="image-column">
+    <img [src]="product.imageUrl.startsWith('/') ? serverUrl + product.imageUrl : product.imageUrl" alt="{{ product.name }}">
+  </div>
+
+  <div class="info-column">
+    <h2>{{ product.name }}</h2>
+    <p class="description">{{ product.description }}</p>
+    
+    <form [formGroup]="variantSelectionForm" class="variant-selector">
+      <div *ngFor="let attribute of selectionMap | keyvalue" class="form-field">
+        <label [for]="attribute.key">{{ attribute.key }}</label>
+        <select [id]="attribute.key" [formControlName]="attribute.key">
+          <option *ngFor="let value of attribute.value" [value]="value">
+            {{ value }}
+          </option>
+        </select>
+      </div>
+    <div class="form-field quantity-field">
+      <label for="quantity">Quantity</label>
+      <input id = "quantity"type="number" formControlName="quantity">
+    </div>
+    </form>
+
+    <div class="price-section">
+      <h3 *ngIf="currentPrice; else defaultPrice">
+        Price: {{ currentPrice }} RSD
+      </h3>
+      <ng-template #defaultPrice>
+        <h3>Select options to see price</h3>
+      </ng-template>
+    </div>
+
+    <!-- <button (click)="addToCart()" [disabled]="!selectedVariant" class="add-to-cart-btn">ADD TO CART</button> -->
+    <button (click)="addToCart()" [disabled]="!selectedVariant" class="add-to-cart-btn">ADD TO CART</button>
+    <button routerLink="/employee-dashboard" class="back-to-shop-btn">BACK TO SHOP</button>
+
+
+
+    <!-- <div *ngIf="successMessage" class="message success">
+      {{ successMessage }}
+    </div>
+    <div *ngIf="errorMessage" class="message error">
+      {{ errorMessage }}
+    </div> -->
+
+  </div>
+</div>

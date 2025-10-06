@@ -1,0 +1,148 @@
+/* .admin-panel-container {
+  padding: 2rem;
+  font-family: sans-serif;
+  max-width: 900px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.admin-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.action-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+  background-color: #0056b3;
+}
+
+.separator {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.component-outlet {
+  padding: 1rem;
+  border-radius: 5px;
+  min-height: 200px;
+} */
+
+/* --- Finalni stil za Admin Panel --- */
+
+/* Preporučeno: Importujte font za čist izgled */
+/* --- Finalni stil za Admin Panel --- */
+
+/* Preporučeno: Importujte font za čist izgled */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* Osnovni stilovi za stranicu */
+body {
+  background-color: #f9fafb; /* Veoma svetlo siva pozadina */
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+/* Kontejner ostaje zaglavlje koje se proteže celom širinom */
+.admin-panel-container {
+  padding: 2.5rem 5%; /* Malo veći padding */
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  max-width: 100%;
+  margin: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Tekst je centriran */
+h2, p {
+  text-align: center;
+}
+
+/* Povećan font za naslov */
+h2 {
+  font-size: 2rem; /* 32px */
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 0.5rem 0;
+}
+
+/* Povećan font za podnaslov */
+p {
+  font-size: 1.125rem; /* 18px */
+  color: #6b7280;
+  margin: 0 0 2.5rem 0;
+}
+
+/* Kontejner za dugmad je centriran */
+.admin-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: -1px;
+}
+
+/* Dugmad stilizovana kao tabovi, sa većim fontom */
+.action-button {
+  padding: 1rem 1.5rem; /* Povećan padding za veći klikabilni prostor */
+  font-size: 16px; /* Povećan font */
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  border-bottom: 3px solid transparent; /* Malo deblja linija za bolju vidljivost */
+  border-radius: 0;
+  background-color: transparent;
+  color: #6b7280;
+  transition: all 0.2s ease-in-out;
+}
+
+.action-button:hover {
+  background-color: #f9fafb;
+  color: #1f2937;
+}
+
+/* Aktivno/fokusirano stanje dugmeta */
+.action-button:focus,
+.action-button:active {
+  color: #4f46e5; /* Elegantna indigo boja */
+  border-bottom-color: #4f46e5;
+}
+
+/* Originalni <hr> separator nam više nije potreban */
+.separator {
+  display: none;
+}
+
+/* Sadržaj ispod zaglavlja ostaje centriran na stranici */
+.component-outlet {
+  max-width: 1200px;
+  margin: 2.5rem auto;
+  padding: 1rem;
+  min-height: 200px;
+}

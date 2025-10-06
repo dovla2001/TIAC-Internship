@@ -1,0 +1,50 @@
+<div class="dashboard-container">
+  <h1>List of available products</h1>
+
+  <div class="filter-section">
+    <input type="text" placeholder="Search products by name..." class="search-input" (input)="onSearchChange($event)">
+     
+    <select class="sort-dropdown" (change)="onSortChange($event)">
+      <option value="">Sort by</option>
+      <option value="basePrice-asc">Prices (ascending)</option>
+      <option value="basePrice-desc">Prices (descending)</option>
+      <option value="name-asc">Name (A-Z)</option>
+    </select>
+  </div>
+
+  <div class="product-list">
+    <p *ngIf="products.length === 0">There are currently no products in the database.</p>
+    <div *ngFor="let product of products" class="product-card">
+      <img [src]="product.imageUrl.startsWith('/') ? serverUrl + product.imageUrl : product.imageUrl" alt="{{ product.name }}"
+        class="product-image">
+      <h3>{{ product.name }}
+      </h3>
+      <p class="description">{{ product.description }}</p>
+      <div class="card-footer">
+        <span class="price">Price: {{ product.basePrice }} RSD</span>
+        <!-- <button class="order-btn">Details</button> za prikaz detalja proizvoda???, ovde cemo dodato RouteLink i proslediti productId -->
+        <a [routerLink] = "['/products', product.productId]" class="details-btn">DETAILS</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination-controls">
+    <button 
+    (click)="onPageChange(currentPage - 1)" 
+    [disabled]="currentPage === 1"
+    class="page-btn">
+    Previous
+  </button>
+
+  <span class="page-info">
+    Page {{ currentPage }} of {{ totalPages }}
+  </span>
+
+  <button 
+    (click)="onPageChange(currentPage + 1)" 
+    [disabled]="currentPage === totalPages"
+    class="page-btn">
+    Next
+  </button>
+  </div>
+</div>

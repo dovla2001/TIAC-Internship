@@ -1,0 +1,31 @@
+<div class="form-container">
+  <h3>Set Attribute Value</h3>
+  
+  <form [formGroup]="valueForm" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+      <label for="attributeId">Select attribute</label>
+      <select id="attributeId" formControlName="attributeId">
+        <option [ngValue]="null" disabled>-- Please choose --</option>
+        <ng-container *ngIf="attributes$ | async as attributes">
+          <option *ngFor="let attr of attributes" [value]="attr.attributeId">
+            {{ attr.name }}
+          </option>
+        </ng-container>
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label for="value">New value</label>
+      <input id="value" type="text" formControlName="value">
+    </div>
+
+    <button type="submit" [disabled]="valueForm.invalid" class="submit-button">Add Value</button>
+  </form>
+
+  <div *ngIf="successMessage" class="message success">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="message error">
+    {{ errorMessage }}
+  </div>
+</div>

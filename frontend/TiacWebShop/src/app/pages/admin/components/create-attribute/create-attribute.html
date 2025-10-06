@@ -1,0 +1,19 @@
+<div class="form-container">
+  <h3>Create New Attribute</h3>
+
+  <form [formGroup]="attributeForm" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name">
+    </div>
+    
+    <button type="submit" [disabled]="attributeForm.invalid" class="submit-button">Create Attribute</button>
+  </form>
+
+  <div *ngIf="successMessage" class="message success">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="message error">
+    {{ errorMessage }}
+  </div>
+</div>

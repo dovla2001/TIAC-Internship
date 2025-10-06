@@ -1,0 +1,43 @@
+<div class="form-container">
+    <h3>Create New Product</h3>
+
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <div class="form-field">
+            <label for="name">Name</label>
+            <input id="name" type="text" formControlName="name">
+        </div>
+
+        <div class="form-field">
+            <label for="description">Description</label>
+            <input id="description" type="text" formControlName="description">
+        </div>
+
+        <div class="form-field">
+            <label for="price">Price</label>
+            <input id="price" type="text" formControlName="price">
+        </div>
+
+        <div class="form-field">
+            <label for="image">Image</label>
+            <input id="image" type="file" accept="image/*"
+                (change)="onFileSelected($event)">
+            <div
+                *ngIf="productForm.get('image')?.invalid && productForm.get('image')?.touched"
+                class="validation-errors">
+                <small>Image is required.</small>
+            </div>
+        </div>
+
+        <button type="submit" [disabled]="productForm.invalid"
+            class="submit-button">Create Product</button>
+
+    </form>
+
+    <div *ngIf="successMessage" class="message success">
+        {{ successMessage }}
+    </div>
+    <div *ngIf="errorMessage" class="message error">
+        {{ errorMessage }}
+    </div>
+    
+</div>

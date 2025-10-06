@@ -1,0 +1,22 @@
+<div class="admin-panel-container">
+  <h2>Administration Panel</h2>
+  <p>Choose one of the options to manage your store.</p>
+
+  <div class="admin-actions">
+    <button routerLink="create-attribute" class="action-button">Create Attribute</button>
+
+    <button routerLink="set-attribute-value" class="action-button">Set Attribute Values</button>
+
+    <button routerLink="create-product" class="action-button">Create Products</button>
+    
+    <button routerLink="create-product-variant" class="action-button">Create Product Variants</button>
+
+    <button routerLink="view-orders" class="action-button">View All Orders</button>
+  </div>
+
+  <hr class="separator" />
+
+  <div class="component-outlet">
+    <router-outlet></router-outlet>
+  </div>
+</div>  

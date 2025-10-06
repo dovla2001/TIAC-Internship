@@ -1,0 +1,56 @@
+<div class="form-container">
+  <h3>Create a New Product Variant</h3>
+
+  <form [formGroup]="variantForm" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+      <label for="productId">Select product</label>
+      <select formControlName="productId" id="productId">
+        <option [ngValue]="null" disabled>-- select product --</option>
+        <option *ngFor="let product of products$ | async" [value]="product.id">{{ product.name }}</option>
+      </select>
+    </div>
+
+    <h4>Attributes and Values</h4>
+
+    <div formArrayName="variantValues">
+      <div *ngFor="let valueGroup of variantValues.controls; let i = index" [formGroupName]="i" class="variant-row">
+        
+        <div class="form-field">
+          <label>Attributes</label>
+          <select formControlName="attributeId" id="selectAttirbuteValues">
+            <option [ngValue]="null" disabled>-- Attribute --</option>
+            <option *ngFor="let attr of attributes$ | async" [value]="attr.id">{{ attr.name }}</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label>Values</label>
+          <select formControlName="valueId"  id="selectAttirbuteValues">
+            <option [ngValue]="null" disabled>-- Values --</option>
+            <ng-container *ngIf="attributes$ | async as attributes">
+              <ng-container *ngFor="let attr of attributes">
+                <ng-container *ngIf="attr.id == valueGroup.get('attributeId')?.value">
+                  <option *ngFor="let val of attr.values" [value]="val.id">{{ val.value }}</option>
+                </ng-container>
+              </ng-container>
+            </ng-container>
+          </select>
+        </div>
+
+        <button type="button" (click)="removeVariantValue(i)" class="remove-button" [disabled]="variantValues.length <= 1">Delete</button>
+      </div>
+    </div>
+    
+    <button type="button" (click)="addVariantValue()" class="add-button">Add New Attribute</button>
+    
+    <div class="form-field">
+      <label for="price">Price of variant</label>
+      <input type="number" formControlName="price" id="price" placeholder="Enter the price for this variant">
+    </div>
+
+    <button type="submit" [disabled]="variantForm.invalid" class="submit-button">Create Variant</button>
+
+    <div *ngIf="successMessage" class="message success">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="message error">{{ errorMessage }}</div>
+  </form>
+</div>

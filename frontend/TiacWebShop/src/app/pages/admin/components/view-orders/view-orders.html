@@ -1,0 +1,34 @@
+<div class="orders-container">
+  <h3>All Customer Orders</h3>
+  
+  <table class="orders-table" *ngIf="orders$ | async as orders; else loading">
+    <thead *ngIf="orders.length > 0">
+      <tr>
+        <th>Order ID</th>
+        <th>Customer</th>
+        <th>Date</th>
+        <th>Items</th>
+        <th>Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>#{{ order.orderId }}</td>
+        <td>{{ order.customerName }}</td>
+        <td>{{ order.orderDate | date:'dd.MM.yyyy. HH:mm' }}</td>
+        <td>{{ order.numberOfItems }}</td>
+        <td><strong>{{ order.totalPrice | number:'1.2-2' }} RSD</strong></td>
+      </tr>
+    </tbody>
+    <tfoot *ngIf="orders.length === 0">
+        <tr>
+            <td colspan="5" class="no-orders-message">There are no orders in the system yet.</td>
+        </tr>
+    </tfoot>
+  </table>
+
+</div>
+
+<ng-template #loading>
+  <p>Loading orders...</p>
+</ng-template>

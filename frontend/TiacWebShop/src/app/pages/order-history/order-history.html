@@ -1,0 +1,38 @@
+<div class="history-container">
+  <h1>My Orders History</h1>
+
+  <ng-container *ngIf="orders$ | async as orders; else loading">
+    <div *ngIf="orders.length > 0; else noOrders">
+      
+      <div *ngFor="let order of orders" class="order-card">
+        <div class="order-header">
+          <h3>Order #{{ order.orderId }}</h3>
+          <span>{{ order.orderDate | date:'dd.MM.yyyy HH:mm' }}</span>
+        </div>
+        <div class="order-body">
+          <h4>Items:</h4>
+          <ul>
+            <li *ngFor="let item of order.items">
+              {{ item.quantity }} x {{ item.fullProductName }} - {{ item.pricePerItem | currency:' RSD ' }}
+            </li>
+          </ul>
+        </div>
+        <div class="order-footer">
+          <strong>Total: {{ order.totalPrice | currency:' RSD ' }}</strong>
+        </div>
+      </div>
+
+    </div>
+  </ng-container>
+
+  <button routerLink="/employee-dashboard" class="back-to-shop-btn">BACK TO SHOP</button>
+
+  <ng-template #loading>
+    <p>Loading orders...</p>
+  </ng-template>
+
+  <ng-template #noOrders>
+    <p class="no-orders-message">You have no past orders.</p>
+  </ng-template>
+
+</div>
