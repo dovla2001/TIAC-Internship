@@ -74,6 +74,5 @@ A full stack application created during an internship at **TIAC d.o.o**. The app
 
 ## Author
 **Vladimir Mandić**  
-LinkedIn: https://www.linkedin.com/in/vladimirmandi%C4%87/ 
 Email: vmandic83@gmail.com
 
