@@ -7,3 +7,13 @@ A full stack application created during an internship at **TIAC d.o.o**. The app
 - **Backend:** ASP.NET Core, MediatR, FastEndpoints, FluentValidation, CleanArchitecture
 - **Frontend:** Angular, HTML, CSS, RxJS  
 - **Database:** SQL Server
+
+## Features
+
+- User registration and login  
+- Display available products  
+- Add different products to the cart  
+- Place orders and view order summary  
+- Add new products (Admin)  
+- View all orders (Admin)  
+- Send email confirmation to both user and admin
