@@ -71,3 +71,9 @@ A full stack application created during an internship at **TIAC d.o.o**. The app
 - Verify the ports and API endpoints in appsettings.json and environment.ts if necessary.
 
 - For sending email confirmations, check the SMTP server configuration in the backend.
+
+## Author
+**Vladimir Mandić**  
+LinkedIn: https://www.linkedin.com/in/vladimirmandi%C4%87/ 
+Email: vmandic83@gmail.com
+
