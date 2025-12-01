@@ -4,7 +4,7 @@ A full stack application created during an internship at **TIAC d.o.o**. The app
 
 ## Technologies
 
-- **Backend:** ASP.NET Core, MediatR, FastEndpoints, FluentValidation, CleanArchitecture
+- **Backend:** ASP.NET Core, MediatR, FastEndpoints, CQRS, FluentValidation, CleanArchitecture
 - **Frontend:**  HTML, CSS, Angular, RxJS  
 - **Database:** SQL Server
 
