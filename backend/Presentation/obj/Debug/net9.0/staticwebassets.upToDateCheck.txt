@@ -1,7 +1,0 @@
-wwwroot\images\backpack.png
-wwwroot\images\charlesdeluvio-1-nx1QR5dTE-unsplash.jpg
-wwwroot\images\Gemini_Generated_Image_m9hcfbm9hcfbm9hc.png
-wwwroot\images\jacket.png
-wwwroot\images\sweatshirt.jpg
-wwwroot\images\tracksuit.png
-wwwroot\images\tshirt.jpg
