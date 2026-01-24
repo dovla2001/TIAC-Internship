@@ -2,13 +2,6 @@
 using Application.Employee.Mappers;
 using Domain.Entities;
 using MediatR;
-using Org.BouncyCastle.Crypto.Generators;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BCrypt.Net;
 
 namespace Application.Employee.Command
 {
@@ -31,7 +24,7 @@ namespace Application.Employee.Command
 
             var domainEntity = request.ToDomainEntity();
             var persistedEmployee = await _employeesRepository.CreateEmployeesAsync(domainEntity, cancellationToken);
-            
+
             return persistedEmployee;
         }
     }

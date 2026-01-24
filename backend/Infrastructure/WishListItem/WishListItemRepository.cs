@@ -1,11 +1,6 @@
 ﻿using Application.WishListItems.CommonWishListItem;
 using Infrastructure.EntityFramework;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.WishListItem
 {
@@ -36,16 +31,16 @@ namespace Infrastructure.WishListItem
              .Include(wi => wi.ProductVariant)
                  .ThenInclude(pv => pv.Product)
              .Include(wi => wi.ProductVariant)
-                 .ThenInclude(pv => pv.VariantValues)        
-                     .ThenInclude(vv => vv.AttributeValue)   
-                         .ThenInclude(av => av.Attribute)    
+                 .ThenInclude(pv => pv.VariantValues)
+                     .ThenInclude(vv => vv.AttributeValue)
+                         .ThenInclude(av => av.Attribute)
              .OrderByDescending(wi => wi.DateAdded)
              .ToListAsync(cancellationToken);
-            }
+        }
 
         public async Task<bool> DeleteAsync(int wishListItemId, int employeeId, CancellationToken cancellationToken)
         {
-            var itemToDelete = await _dbContext.WishListItems.FirstOrDefaultAsync(wi => wi.WishListItemId ==  wishListItemId && wi.EmployeeId == employeeId, cancellationToken);    
+            var itemToDelete = await _dbContext.WishListItems.FirstOrDefaultAsync(wi => wi.WishListItemId == wishListItemId && wi.EmployeeId == employeeId, cancellationToken);
 
             if (itemToDelete is null)
             {

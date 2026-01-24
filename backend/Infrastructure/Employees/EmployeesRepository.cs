@@ -1,11 +1,6 @@
 ﻿using Application.Employee.CommonEmployees;
 using Infrastructure.EntityFramework;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Employees
 {
@@ -53,7 +48,7 @@ namespace Infrastructure.Employees
         }
 
         public async Task<List<Domain.Entities.Employees>> GetAllEmployeesAsync(CancellationToken cancellationToken)
-        { 
+        {
             return await _dbcontext.Employees.ToListAsync(cancellationToken);
         }
 

@@ -1,9 +1,4 @@
 ﻿using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Product.CommonProducts
 {
@@ -15,7 +10,7 @@ namespace Application.Product.CommonProducts
         public Task DeleteProductAsync(Products product, CancellationToken cancellationToken);
 
         public Task<List<Products>> GetAllProductsAsync(CancellationToken cancellationToken);
-        public Task<Products?> GetByIdProductVariantAsync(int id, CancellationToken cancellationToken);  
+        public Task<Products?> GetByIdProductVariantAsync(int id, CancellationToken cancellationToken);
         public Task<(List<Products> Items, int TotalCount)> GetAllAsync(int pageNumber, int pageSize, string? sortBy, string? sortDirection, string? name, CancellationToken cancellationToken);
         public Task<List<Products>> GetAllSimpleAsync(CancellationToken cancellationToken);
 

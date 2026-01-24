@@ -1,11 +1,6 @@
 ﻿using Application.Attribute.CommonAttributes;
 using Infrastructure.EntityFramework;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Attributes
 {
@@ -55,7 +50,7 @@ namespace Infrastructure.Attributes
 
         public async Task<bool> DoesAttributeExistByNameAsync(string name, CancellationToken cancellationToken)
         {
-            return await _dbcontext.Attributes.AnyAsync(a => a.Name.ToLower() ==  name.ToLower(), cancellationToken);
+            return await _dbcontext.Attributes.AnyAsync(a => a.Name.ToLower() == name.ToLower(), cancellationToken);
         }
     }
 }

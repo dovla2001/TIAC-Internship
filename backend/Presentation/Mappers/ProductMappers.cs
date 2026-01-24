@@ -1,7 +1,4 @@
-﻿using Application.Employee.Command;
-using Application.Product.Command;
-using Domain.Entities;
-using Presentation.Contract.Employees;
+﻿using Domain.Entities;
 using Presentation.Contract.Products;
 
 namespace Presentation.Mappers
@@ -20,8 +17,6 @@ namespace Presentation.Mappers
                 ImageUrl = products.ImageUrl
             };
         }
-
-        //public static CreateProductCommand ToCommand(this CreateProductRequest request) => new CreateProductCommand(request.Name, request.Description, request.BasePrice, request.Image);
 
         public static CreateProductResponse ToApiResponseFromCommand(this Products products)
         {

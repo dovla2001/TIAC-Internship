@@ -1,13 +1,11 @@
-﻿using Infrastructure.EntityFramework;
-using Infrastructure;
-using Application;
-using FastEndpoints.Swagger;
+﻿using Application;
 using FastEndpoints;
+using FastEndpoints.Swagger;
+using Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using Presentation.ExceptionHandlers;
-using NSwag;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,10 +15,7 @@ builder.Services.SwaggerDocument();
 
 builder.Services.AddFastEndpoints();
 
-builder.Services.AddExceptionHandler<CustomApiExceptionHandler>();  
-
-// Add services to the container.
-//builder.Services.AddOpenApi();
+builder.Services.AddExceptionHandler<CustomApiExceptionHandler>();
 
 builder.Services.AddCors(options =>
 {
@@ -57,7 +52,6 @@ app.UseExceptionHandler("/error");
 
 app.UseSwaggerGen();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -69,8 +63,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseFastEndpoints();
-
-//app.UseHttpsRedirection();
 
 app.Map("/error", () => Results.Problem());
 

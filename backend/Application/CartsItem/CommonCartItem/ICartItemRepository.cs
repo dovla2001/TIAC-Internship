@@ -1,9 +1,4 @@
 ﻿using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.CartsItem.CommonCartItem
 {
@@ -15,6 +10,6 @@ namespace Application.CartsItem.CommonCartItem
         public Task DeleteCartItemAsync(CartItem carts, CancellationToken cancellationToken);
 
         public Task<CartItem?> GetItemByVariantIdAsync(int cartId, int productVariantId, CancellationToken cancellationToken);
-        
+
     }
 }

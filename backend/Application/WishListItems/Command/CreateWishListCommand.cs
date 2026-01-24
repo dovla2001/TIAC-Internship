@@ -1,11 +1,6 @@
 ﻿using Application.WishListItems.CommonWishListItem;
 using Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.WishListItems.Command
 {
@@ -36,7 +31,7 @@ namespace Application.WishListItems.Command
                 DateAdded = DateTime.UtcNow
             };
 
-            await _wishListRepository.AddAsync(entity, cancellationToken);  
+            await _wishListRepository.AddAsync(entity, cancellationToken);
 
             return entity.WishListItemId;
         }

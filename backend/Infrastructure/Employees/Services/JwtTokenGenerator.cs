@@ -1,18 +1,10 @@
-﻿using Application.Employee.Command;
-using Application.Employee.CommonEmployees;
+﻿using Application.Employee.CommonEmployees;
 using Application.Employee.Services;
-using Domain.Entities;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Employees.Services
 {
@@ -42,11 +34,11 @@ namespace Infrastructure.Employees.Services
 
             var claims = new List<Claim>
             {
-                new(JwtRegisteredClaimNames.Sub, employee.EmployeesId.ToString()), 
+                new(JwtRegisteredClaimNames.Sub, employee.EmployeesId.ToString()),
                 new(JwtRegisteredClaimNames.Email, employee.Email),
-                new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), 
-                new(ClaimTypes.Name, $"{employee.FirstName} {employee.LastName}"), 
-                new(ClaimTypes.Role, employee.IsAdmin ? "Admin" : "Employee") 
+                new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new(ClaimTypes.Name, $"{employee.FirstName} {employee.LastName}"),
+                new(ClaimTypes.Role, employee.IsAdmin ? "Admin" : "Employee")
             };
 
             var token = new JwtSecurityToken(
@@ -57,7 +49,7 @@ namespace Infrastructure.Employees.Services
                 signingCredentials: new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256));
 
             var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-            
+
             return tokenString;
         }
     }

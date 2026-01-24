@@ -1,7 +1,6 @@
 ﻿using Application.AttributeValues.Command;
 using FastEndpoints;
 using MediatR;
-using Presentation.Contract.Attributes;
 using Presentation.Contract.AttributeValues;
 using Presentation.Mappers;
 

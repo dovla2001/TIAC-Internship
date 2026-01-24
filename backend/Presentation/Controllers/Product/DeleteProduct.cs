@@ -1,7 +1,7 @@
-﻿using FastEndpoints;
+﻿using Application.Product.Command;
+using FastEndpoints;
 using MediatR;
 using Presentation.Contract.Products;
-using Application.Product.Command;
 
 namespace Presentation.Controllers.Product
 {

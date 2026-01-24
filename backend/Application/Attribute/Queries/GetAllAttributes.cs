@@ -1,11 +1,6 @@
 ﻿using Application.Attribute.CommonAttributes;
 using Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Attribute.Queries
 {
@@ -20,7 +15,7 @@ namespace Application.Attribute.Queries
 
         public async Task<List<Attributes>> Handle(GetAllAttributesQuery request, CancellationToken cancellationToken)
         {
-            var attributes =  await _attributesRepository.GetAllAsync(cancellationToken);
+            var attributes = await _attributesRepository.GetAllAsync(cancellationToken);
             return attributes;
         }
     }

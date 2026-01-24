@@ -10,11 +10,6 @@ using Infrastructure.ProductVariants;
 using Infrastructure.VariantsValues;
 using Infrastructure.WishListItem;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.EntityFramework
 {

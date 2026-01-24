@@ -1,12 +1,6 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Employee.CommonEmployees;
 using Domain.Entities;
-using Application.Employee.CommonEmployees;
-using System.Linq.Expressions;
+using MediatR;
 
 namespace Application.Employee.Queries
 {
@@ -28,7 +22,7 @@ namespace Application.Employee.Queries
                 {
                     throw new Exception($"Employee with id {request.Id} doesn't exists!");
                 }
-                
+
                 return employee;
             }
         }

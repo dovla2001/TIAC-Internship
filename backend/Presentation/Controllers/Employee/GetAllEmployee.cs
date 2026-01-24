@@ -1,11 +1,8 @@
-﻿using Domain.Entities;
-using FastEndpoints;
+﻿using FastEndpoints;
 using MediatR;
 using Presentation.Common;
 using Presentation.Contract.Employees;
-using static Application.Employee.Queries.GetAllEmployee;
 using static Application.Employee.Queries.GetAllEmployeesQueryPaginated;
-using static Application.Employee.Queries.GetEmployeeById;
 
 namespace Presentation.Controllers.Employee
 {
@@ -47,7 +44,7 @@ namespace Presentation.Controllers.Employee
                pageSize,
                totalCount);
 
-             await SendOkAsync(pagedResponse, cancellationToken);
+            await SendOkAsync(pagedResponse, cancellationToken);
         }
     }
 }

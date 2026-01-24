@@ -1,5 +1,4 @@
-﻿using Application;
-using Application.Attribute.CommonAttributes;
+﻿using Application.Attribute.CommonAttributes;
 using Application.AttributeValues.CommonAttributeValues;
 using Application.Cart.CommonCarts;
 using Application.CartsItem.CommonCartItem;
@@ -28,11 +27,6 @@ using Infrastructure.WishListItem;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure
 {

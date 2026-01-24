@@ -1,11 +1,6 @@
 ﻿using Application.Cart.Command;
 using Application.WishListItems.CommonWishListItem;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.WishListItems.Command
 {
@@ -33,7 +28,7 @@ namespace Application.WishListItems.Command
 
             await _mediator.Send(addToCartCommand, cancellationToken);
 
-            await _wishListRepository.DeleteAsync(wishListItem.WishListItemId, wishListItem.EmployeeId, cancellationToken);   
+            await _wishListRepository.DeleteAsync(wishListItem.WishListItemId, wishListItem.EmployeeId, cancellationToken);
         }
     }
 

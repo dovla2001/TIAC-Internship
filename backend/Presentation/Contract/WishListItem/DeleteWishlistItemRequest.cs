@@ -2,6 +2,6 @@
 {
     public class DeleteWishlistItemRequest
     {
-        public int WishListItemId { get; set; } 
+        public int WishListItemId { get; set; }
     }
 }

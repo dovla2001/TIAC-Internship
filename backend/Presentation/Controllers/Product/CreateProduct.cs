@@ -4,8 +4,6 @@ using MediatR;
 using Presentation.Contract.Products;
 using Presentation.Mappers;
 using Presentation.Validators.Product;
-using Microsoft.AspNetCore.Hosting;
-using System.IO;
 
 namespace Presentation.Controllers.Product
 {
@@ -46,7 +44,7 @@ namespace Presentation.Controllers.Product
                     await request.Image.CopyToAsync(fileStream, cancellationToken);
                 }
 
-                imageUrl =  $"/images//{uniqueFileName}";
+                imageUrl = $"/images//{uniqueFileName}";
             }
 
             var command = new CreateProductCommand(

@@ -2,8 +2,8 @@
 {
     public class ProductVariantDTO
     {
-        public int VariantId { get; set; } 
+        public int VariantId { get; set; }
         public decimal Price { get; set; }
-        public List<AttributeDTO> Attributes { get; set; }  
+        public List<AttributeDTO> Attributes { get; set; }
     }
 }

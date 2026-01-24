@@ -2,7 +2,7 @@
 {
     public class CreateProductResponse
     {
-        public int ProductId {  get; set; }
+        public int ProductId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal BasePrice { get; set; }

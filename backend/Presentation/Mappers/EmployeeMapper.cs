@@ -20,7 +20,7 @@ namespace Presentation.Mappers
         }
 
         public static CreateEmployeesCommand ToCommand(this CreateEmployeeRequest request) => new CreateEmployeesCommand(request.FirstName, request.LastName, request.Email, request.Password);
-        
+
         public static CreateEmployeeResponse ToApiResponseFromCommand(this Employees employees)
         {
             return new CreateEmployeeResponse

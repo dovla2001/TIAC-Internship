@@ -2,13 +2,11 @@
 using MediatR;
 using Presentation.Common;
 using Presentation.Contract.Products;
-using Presentation.Mappers;
 using static Application.Product.Queries.GetAllProductQueryPaginated;
-using static Application.Product.Queries.GetAllProducts;
 
 namespace Presentation.Controllers.Product
 {
-    public class GetAllProducts: Endpoint<GetAllProductRequest, PagedList<ReadProductResponse>>
+    public class GetAllProducts : Endpoint<GetAllProductRequest, PagedList<ReadProductResponse>>
     {
         private readonly IMediator _mediator;
 
@@ -48,7 +46,7 @@ namespace Presentation.Controllers.Product
                 pageSize,
                 totalCount);
 
-            await SendOkAsync(pagedResponse, cancellationToken);    
+            await SendOkAsync(pagedResponse, cancellationToken);
         }
     }
 }

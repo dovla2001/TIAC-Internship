@@ -19,7 +19,6 @@ namespace Presentation.Controllers.Employee
         {
             Post("employees");
             //AllowAnonymous();
-            
             Validator<CreateEmployeeRequestValidator>();
         }
 

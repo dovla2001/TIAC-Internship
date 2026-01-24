@@ -2,7 +2,6 @@
 using FastEndpoints;
 using MediatR;
 using Presentation.Contract.Employees;
-using Presentation.Mappers;
 
 namespace Presentation.Controllers.Employee
 {

@@ -24,7 +24,7 @@ namespace Presentation.Controllers.Order
         public override async Task HandleAsync(CancellationToken cancellationToken)
         {
             var employeeIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
-            
+
             if (employeeIdClaim is null || !int.TryParse(employeeIdClaim.Value, out var employeeId))
             {
                 await SendUnauthorizedAsync(cancellationToken);
@@ -50,7 +50,7 @@ namespace Presentation.Controllers.Order
 
                     return new OrderItemResponse
                     {
-                        FullProductName = fullProductName, 
+                        FullProductName = fullProductName,
                         Quantity = item.Quantity,
                         PricePerItem = item.Price,
                         TotalPrice = item.TotalPrice

@@ -3,11 +3,6 @@ using Application.CartsItem.CommonCartItem;
 using Application.ProductVariant.CommonProductVariants;
 using Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Cart.Command
 {
@@ -28,7 +23,7 @@ namespace Application.Cart.Command
         {
             var activeCart = await _cartsRepository.GetActiveCartByEmployeeIdAsync(request.EmployeeId, cancellationToken);
 
-            if (activeCart is null) 
+            if (activeCart is null)
             {
                 var newCart = new Carts
                 {
@@ -37,16 +32,16 @@ namespace Application.Cart.Command
                     DateCreated = DateTime.UtcNow,
                     TotalPrice = 0
                 };
-                activeCart = await _cartsRepository.CreateCartsAsync(newCart, cancellationToken); 
+                activeCart = await _cartsRepository.CreateCartsAsync(newCart, cancellationToken);
             }
 
-            var existingItem = await _cartItemRepository.GetItemByVariantIdAsync(activeCart.CartId, request.ProductVariantId, cancellationToken); 
+            var existingItem = await _cartItemRepository.GetItemByVariantIdAsync(activeCart.CartId, request.ProductVariantId, cancellationToken);
 
             if (existingItem is not null)
             {
                 existingItem.Quantity += request.Quantity;
                 existingItem.TotalPrice = existingItem.Quantity * existingItem.Price;
-                await _cartItemRepository.UpdateCartItemAsync(existingItem, cancellationToken); 
+                await _cartItemRepository.UpdateCartItemAsync(existingItem, cancellationToken);
             }
             else
             {
@@ -64,7 +59,7 @@ namespace Application.Cart.Command
                     Price = variant.Price,
                     TotalPrice = request.Quantity * variant.Price
                 };
-                await _cartItemRepository.CreateCartItemAsync(newItem, cancellationToken); 
+                await _cartItemRepository.CreateCartItemAsync(newItem, cancellationToken);
             }
 
             var updatedCartWithItems = await _cartsRepository.GetActiveCartDetailsAsync(request.EmployeeId, cancellationToken);

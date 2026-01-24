@@ -24,7 +24,7 @@ namespace Presentation.Controllers.Employee
         {
             var command = new RefreshTokenCommand(request.RefreshToken);
             var response = await _mediator.Send(command, cancellationToken);
-;       
+            ;
             await SendOkAsync(response, cancellationToken);
         }
     }

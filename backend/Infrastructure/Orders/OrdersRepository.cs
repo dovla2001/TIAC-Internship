@@ -1,14 +1,6 @@
 ﻿using Application.Order.CommonOrders;
-using Application.Product.CommonProducts;
 using Infrastructure.EntityFramework;
-using Infrastructure.Products;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Orders
 {
@@ -74,15 +66,15 @@ namespace Infrastructure.Orders
         public async Task<Domain.Entities.Orders?> GetOrderByIdWithDetailsAsync(int orderId, CancellationToken cancellationToken)
         {
             return await _dbcontext.Orders
-                .Include(o => o.Employees)   
-                .Include(o => o.OrderItems) 
-                    .ThenInclude(oi => oi.ProductVariants)
-                        .ThenInclude(pv => pv.Product) 
+                .Include(o => o.Employees)
                 .Include(o => o.OrderItems)
                     .ThenInclude(oi => oi.ProductVariants)
-                        .ThenInclude(pv => pv.VariantValues) 
-                            .ThenInclude(vv => vv.AttributeValue) 
-                                .ThenInclude(av => av.Attribute) 
+                        .ThenInclude(pv => pv.Product)
+                .Include(o => o.OrderItems)
+                    .ThenInclude(oi => oi.ProductVariants)
+                        .ThenInclude(pv => pv.VariantValues)
+                            .ThenInclude(vv => vv.AttributeValue)
+                                .ThenInclude(av => av.Attribute)
                 .FirstOrDefaultAsync(o => o.OrdersId == orderId, cancellationToken);
         }
     }

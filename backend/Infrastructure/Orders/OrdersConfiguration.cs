@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Orders
@@ -19,7 +14,7 @@ namespace Infrastructure.Orders
             builder.Property(o => o.OrdersId).HasColumnName("ordersId");
 
             builder.Property(o => o.EmployeeId).HasColumnName("employeeId");
-            
+
             builder.Property(o => o.OrderDate).HasColumnName("orderDate");
 
             builder.Property(o => o.TotalPrice).HasColumnName("totalPrice");

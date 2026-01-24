@@ -2,7 +2,6 @@
 using FastEndpoints;
 using MediatR;
 using Presentation.Contract.AttributeValues;
-using Presentation.Mappers;
 
 namespace Presentation.Controllers.AttributeValues
 {

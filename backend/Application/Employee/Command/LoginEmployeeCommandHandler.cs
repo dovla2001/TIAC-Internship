@@ -1,15 +1,8 @@
 ﻿using Application.Employee.CommonEmployees;
 using Application.Employee.Services;
-using Domain.Entities;
 using MediatR;
-using Org.BouncyCastle.OpenSsl;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Authentication;
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Employee.Command
 {

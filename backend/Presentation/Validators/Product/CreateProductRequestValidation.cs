@@ -9,7 +9,7 @@ namespace Presentation.Validators.Product
         public CreateProductRequestValidation()
         {
             RuleFor(p => p.Name).NotEmpty().WithMessage("Name is required!");
-            
+
             RuleFor(p => p.Description).NotEmpty().WithMessage("Name is required!")
                 .MaximumLength(100);
 

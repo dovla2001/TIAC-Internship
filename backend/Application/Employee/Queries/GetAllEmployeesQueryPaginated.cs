@@ -1,11 +1,6 @@
 ﻿using Application.Employee.CommonEmployees;
 using Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Employee.Queries
 {
@@ -23,7 +18,7 @@ namespace Application.Employee.Queries
             public async Task<(List<Employees> Items, int totalCount)> Handle(GetAllEmployeesQuery request, CancellationToken cancellationToken)
             {
                 var (employees, totalCount) = await _employeesRepository.GetAllAsync(request.PageNumber, request.PageSize, cancellationToken);
-                
+
                 return (employees, totalCount);
             }
         }

@@ -1,7 +1,6 @@
 ﻿using Application.Attribute.Queries;
 using FastEndpoints;
 using MediatR;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Presentation.Contract.Attributes;
 
 namespace Presentation.Controllers.Attribute

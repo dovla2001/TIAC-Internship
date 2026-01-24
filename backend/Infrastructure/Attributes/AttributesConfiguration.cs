@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Attributes
 {
@@ -19,7 +14,7 @@ namespace Infrastructure.Attributes
 
             builder.Property(a => a.Name).HasColumnName("name");
 
-            builder.HasIndex(a => a.Name).IsUnique(); 
+            builder.HasIndex(a => a.Name).IsUnique();
         }
     }
 }

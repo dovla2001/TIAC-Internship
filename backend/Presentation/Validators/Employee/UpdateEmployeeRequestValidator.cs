@@ -11,7 +11,7 @@ namespace Presentation.Validators.Employee
             RuleFor(e => e.FirstName).NotEmpty().WithMessage("First Name is required");
 
             RuleFor(e => e.LastName).NotEmpty().WithMessage("Last Name is required");
-            
+
             RuleFor(e => e.Email).NotEmpty().WithMessage("Email is required")
                 .EmailAddress().WithMessage("The email address format is incorrect");
         }

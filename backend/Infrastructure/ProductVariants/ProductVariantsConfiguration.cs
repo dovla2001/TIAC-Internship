@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.ProductVariants
 {
@@ -22,7 +17,7 @@ namespace Infrastructure.ProductVariants
             builder.HasOne(pv => pv.Product)
                 .WithMany(p => p.ProductVariants)
                 .HasForeignKey(pv => pv.ProductId)
-                .OnDelete(DeleteBehavior.Cascade); 
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

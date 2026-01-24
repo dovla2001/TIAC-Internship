@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.OrderItems
 {
@@ -15,7 +10,7 @@ namespace Infrastructure.OrderItems
             builder.ToTable("orderItems");
 
             builder.HasKey(oi => oi.OrderItemId);
-            
+
             builder.Property(oi => oi.OrderItemId).HasColumnName("orderItemId");
 
             builder.Property(oi => oi.Price).HasColumnName("pricePerItem");

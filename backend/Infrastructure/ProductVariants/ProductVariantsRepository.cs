@@ -1,11 +1,6 @@
 ﻿using Application.ProductVariant.CommonProductVariants;
 using Infrastructure.EntityFramework;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.ProductVariants
 {
@@ -43,7 +38,7 @@ namespace Infrastructure.ProductVariants
         }
 
         public async Task<bool> DoesVariantExistAsync(int productId, List<int> attributeValuesIds, CancellationToken cancellationToken)
-        { 
+        {
             var sortedNewValuesIds = attributeValuesIds.OrderBy(id => id).ToList();
 
             var variantsForProduct = await _dbContex.ProductVariants

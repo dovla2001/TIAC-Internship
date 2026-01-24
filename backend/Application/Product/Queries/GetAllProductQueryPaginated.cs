@@ -1,11 +1,6 @@
 ﻿using Application.Product.CommonProducts;
 using Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Product.Queries
 {
@@ -27,7 +22,7 @@ namespace Application.Product.Queries
                 return (products, totalCount);
             }
         }
-        
+
         public record GetAllProductQuery(int PageNumber, int PageSize, string? SortBy, string? SortDirection, string? Name) : IRequest<(List<Products> Items, int TotalCount)>;
     }
 }

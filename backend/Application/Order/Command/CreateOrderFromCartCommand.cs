@@ -4,11 +4,6 @@ using Application.Employee.CommonEmployees;
 using Application.Order.CommonOrders;
 using Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Order.Command
 {
@@ -41,13 +36,13 @@ namespace Application.Order.Command
                 throw new Exception("Active card is empty");
             }
 
-            var calculatedTotalPrice = cart.CartItems.Sum(item => item.TotalPrice); 
+            var calculatedTotalPrice = cart.CartItems.Sum(item => item.TotalPrice);
 
             var newOrder = new Orders
             {
                 EmployeeId = request.EmployeeId,
                 OrderDate = DateTime.UtcNow,
-                TotalPrice = calculatedTotalPrice  
+                TotalPrice = calculatedTotalPrice
             };
 
             foreach (var cartItem in cart.CartItems)

@@ -15,7 +15,7 @@ namespace Presentation.Controllers.Employee
         {
             _mediator = mediator;
         }
-        
+
         public override void Configure()
         {
             Post("auth/register");

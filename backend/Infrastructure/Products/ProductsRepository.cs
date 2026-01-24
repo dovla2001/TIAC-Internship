@@ -1,11 +1,6 @@
 ﻿using Application.Product.CommonProducts;
 using Infrastructure.EntityFramework;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Products
 {
@@ -54,7 +49,7 @@ namespace Infrastructure.Products
                 .FirstOrDefaultAsync(p => p.ProductId == id, cancellationToken);
         }
 
-        public async Task<(List<Domain.Entities.Products> Items, int TotalCount)> GetAllAsync(int pageNumber, int pageSize, string? sortBy, string? sortDirection, string? name,CancellationToken cancellationToken)
+        public async Task<(List<Domain.Entities.Products> Items, int TotalCount)> GetAllAsync(int pageNumber, int pageSize, string? sortBy, string? sortDirection, string? name, CancellationToken cancellationToken)
         {
             var query = _dbContext.Products.AsNoTracking();
 
@@ -89,7 +84,7 @@ namespace Infrastructure.Products
 
         public async Task<List<Domain.Entities.Products>> GetAllSimpleAsync(CancellationToken cancellationToken)
         {
-            return await _dbContext.Products.AsNoTracking().Select(p => new Domain.Entities.Products { ProductId = p.ProductId, Name = p.Name}).ToListAsync(cancellationToken);
+            return await _dbContext.Products.AsNoTracking().Select(p => new Domain.Entities.Products { ProductId = p.ProductId, Name = p.Name }).ToListAsync(cancellationToken);
         }
     }
 }

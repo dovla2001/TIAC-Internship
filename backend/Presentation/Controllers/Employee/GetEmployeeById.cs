@@ -2,7 +2,6 @@
 using MediatR;
 using Presentation.Contract.Employees;
 using Presentation.Mappers;
-using Presentation.Validators.Employee;
 using static Application.Employee.Queries.GetEmployeeById;
 
 namespace Presentation.Controllers.Employee

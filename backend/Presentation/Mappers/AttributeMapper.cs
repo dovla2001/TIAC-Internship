@@ -1,13 +1,13 @@
 ﻿using Application.Attribute.Command;
-using Presentation.Contract.Attributes;
 using Domain.Entities;
+using Presentation.Contract.Attributes;
 
 namespace Presentation.Mappers
 {
     public static class AttributeMapper
     {
         public static CreateAttributesCommand ToCommand(this CreateAttributeRequest request) => new CreateAttributesCommand(request.Name);
-    
+
         public static CreateAttributeResponse ToApiResponseFromCommand(this Attributes attributes)
         {
             return new CreateAttributeResponse

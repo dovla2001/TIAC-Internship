@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Entities
+﻿namespace Domain.Entities
 {
     public class Employees
     {
@@ -14,11 +8,11 @@ namespace Domain.Entities
         public string PasswordHash { get; set; } = null!;
         public string Email { get; set; } = null!;
         public bool IsAdmin { get; set; }
-        public ICollection<Orders> Orders { get; set; } = new List<Orders>(); 
+        public ICollection<Orders> Orders { get; set; } = new List<Orders>();
         public ICollection<Carts> Carts { get; set; } = new List<Carts>();
         public ICollection<WishListItem> WishListItems { get; set; } = new List<WishListItem>(); //dodao za wishlist
 
-        public string? RefreshToken {  get; set; }
+        public string? RefreshToken { get; set; }
         public DateTime? RefreshTokenExpiryDate { get; set; }
 
     }

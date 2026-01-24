@@ -1,12 +1,6 @@
 ﻿using Application.CartsItem.CommonCartItem;
 using Infrastructure.EntityFramework;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.CartItem
 {
@@ -33,7 +27,7 @@ namespace Infrastructure.CartItem
         }
 
         public async Task<Domain.Entities.CartItem?> GetByIdCartItemAsync(int id, CancellationToken cancellationToken)
-        { 
+        {
             return await _dbContext.CartItems.FirstOrDefaultAsync(ci => ci.CartItemId == id, cancellationToken);
         }
 
