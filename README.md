@@ -64,14 +64,6 @@ A full stack application created during an internship at **TIAC d.o.o**. The app
     ```
     - You should see the Web Shop homepage and be able to test all features.
 
-**Notes:**
-
-- Make sure your SQL Server is running and the user has permissions to create the database.
-
-- Verify the ports and API endpoints in appsettings.json and environment.ts if necessary.
-
-- For sending email confirmations, check the SMTP server configuration in the backend.
-
 ## Author
 **Vladimir Mandić**  
 Email: vmandic83@gmail.com
