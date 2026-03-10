@@ -28,3 +28,7 @@ packages/
 
 # User secrets
 secrets.json
+
+appsettings.json
+appsettings.Development.json
+.env
