@@ -18,6 +18,17 @@ A full stack application created during an internship at **TIAC d.o.o**. The app
 - View all orders (Admin)
 - Send email confirmation to both user and admin
 
+## Architecture
+
+The backend follows Clean Architecture principles:
+
+- Domain – core business logic
+- Application – CQRS with MediatR
+- Infrastructure – database, email services
+- API – FastEndpoints
+
+CQRS is used to separate read and write operations for better scalability and maintainability.
+
 ## Configuration
 
 The `appsettings.json` file is not included in the repository because it contains sensitive data (connection strings, JWT keys, email credentials).
@@ -53,7 +64,7 @@ To run the project, copy `appsettings.example.json` and rename it to `appsetting
    dotnet ef database update
    ```
 
-   - Run the backened
+   - Run the backend
 
    ```bash
    dotnet run
@@ -61,7 +72,7 @@ To run the project, copy `appsettings.example.json` and rename it to `appsetting
    ```
 
 3. **Setup the frontend**
-   - Navigate to the frontedn folder
+   - Navigate to the frontend folder
 
    ```bash
    cd TIAC-Internship/frontend
